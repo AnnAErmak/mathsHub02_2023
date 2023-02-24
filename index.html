@@ -11,25 +11,38 @@
     <title>Document</title>
   </head>
   <body class="container">
-    <h1>Анкета</h1>
-    <h2>Общая информация</h2>
-    <div>
-      <strong>Имя</strong>
-      <span class="name">Анна</span>
-      <br />
-      <strong>Изучаемые языки:</strong>
-      <span id="skill">JavaScript</span>
-      <span>TypeScript</span>
-      <br />
-      <strong>Любите ли вы этот язык?</strong>
-      <span id="isLove"></span>
-    </div>
-    <h2>Мой любимый мем</h2>
-    <img
-      src="https://kartinkof.club/uploads/posts/2022-03/1648241116_1-kartinkof-club-p-mem-priemlemo-s-kotom-1.png"
-      alt="image"
-      title="title"
-    />
+    <header>
+      <nav>
+        <a href="#">About us</a>
+        <a href="#">Hobby</a>
+        <a href="#">Contacts</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Анкета</h1>
+      <div class="about_us">
+        <div class="mem">
+          <h2>Мой любимый мем</h2>
+          <img src="img/mem.png" alt="image" title="title" />
+        </div>
+
+        <div class="info">
+          <h2>Общая информация</h2>
+          <strong class="name">Имя:</strong>
+          <span>Анна</span>
+          <br />
+          <p class="info-p">Языки и технологии, которые я изучаю:</p>
+          <ul>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Webpack</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer>2023</footer>
 
     <script src="script.js"></script>
   </body>

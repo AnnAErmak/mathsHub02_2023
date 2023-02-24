@@ -7,13 +7,44 @@ body {
   background-color: #112d49;
   font-size: 20px;
 }
+header {
+  background-color: lightgray;
+  height: 50px;
+}
+nav {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+nav > a {
+  text-decoration: none;
+  color: black;
+  padding: 0 30px;
+}
+.about_us {
+  display: flex;
+}
+.mem {
+  margin-right: 55px;
+}
+.info {
+  text-align: start;
+}
+.name {
+  font-size: 25px;
+}
+.info-p {
+  margin: 25px 0;
+}
+
 img {
   width: 300px;
   height: 300px;
 }
 .container {
   text-align: center;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
