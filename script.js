@@ -22,7 +22,7 @@ const gameState = {
   taskInProcess: false,
   rightAnswer: null,
 };
-btnGame.onclick = () => {
+const startGameFunc = () => {
   if (!gameState.taskInProcess) {
     title.innerText = "Игра началась!";
     userAnswer.value = null;
@@ -38,25 +38,62 @@ btnGame.onclick = () => {
     gameState.taskInProcess = false;
   }
 };
+btnGame.addEventListener("click", startGameFunc);
+userAnswer.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    startGameFunc();
+  } else if (e.key === "Escape") {
+    userAnswer.blur();
+  }
+});
 
 const choosedEl = document.querySelectorAll(".choosed_block-container > div");
 const counterEl = document.querySelector(".choosed_block span");
 
 const choosedState = {
   countElements: 0,
+  setCountValue(value) {
+    this.countElements += value;
+    counterEl.innerText = this.countElements;
+  },
 };
-const changeCount = (value) => {
-  choosedState.countElements += value;
-  counterEl.innerText = choosedState.countElements;
+const eventFunc = (e) => {
+  if (e.target.className === "") {
+    e.target.className = "choosed_element";
+    choosedState.setCountValue(1);
+  } else {
+    e.target.className = "";
+    choosedState.setCountValue(-1);
+  }
 };
+
 for (let i = 0; i < choosedEl.length; i++) {
-  choosedEl[i].addEventListener("click", (e) => {
-    if (e.target.className === "") {
-      e.target.className = "choosed_element";
-      changeCount(1);
-    } else {
-      e.target.className = "";
-      changeCount(-1);
-    }
-  });
+  choosedEl[i].addEventListener("click", eventFunc);
 }
+
+const postsBlock = document.querySelector(".posts_block-container");
+const showPostBtn = document.querySelector(".posts_block button");
+
+function addPost(title, body) {
+  const postTitle = document.createElement("h3");
+  const postBody = document.createElement("span");
+  const postItem = document.createElement("p");
+
+  postTitle.innerText = title;
+  postBody.innerText = body;
+
+  postItem.append(postTitle, postBody);
+  postsBlock.append(postItem);
+}
+
+function getPosts() {
+  fetch("https://jsonplaceholder.typicode.com/posts")
+    .then((response) => response.json())
+    .then((json) => {
+      for (item of json) {
+        addPost(item.title, item.body);
+      }
+    })
+    .catch((err) => console.log(err.message));
+}
+showPostBtn.onclick = getPosts;
