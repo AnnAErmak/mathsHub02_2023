@@ -59,3 +59,57 @@ h1 {
 h2 {
   margin-bottom: 40px;
 }
+.projects {
+  font-size: 40px;
+  margin-top: 45px;
+}
+.my_game {
+  margin-top: 100px;
+}
+input,
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: rgb(240, 240, 155);
+}
+input {
+  width: 45%;
+  height: 30px;
+  font-size: 1.3rem;
+}
+button {
+  margin-left: 20px;
+  height: 50px;
+  cursor: pointer;
+  background-color: beige;
+  font-size: 1.5rem;
+}
+.choosed_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.choosed_block-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 650px;
+}
+.choosed_block-container > div {
+  width: 150px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: wheat;
+}
+.choosed_element {
+  border: 2px dotted red;
+}
+footer {
+  margin-top: 65px;
+}
